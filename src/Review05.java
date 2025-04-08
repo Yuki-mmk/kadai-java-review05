@@ -32,8 +32,9 @@ public class Review05 {
 
             System.out.print("検索キーワードを入力してください > ");
             String str1 = keyIn();
+            int keyword = keyInNum();
 
-            spstmt.setString(1,str1);
+			spstmt.setString(1,str1);
 
             // 5, 6. Select文の実行と結果を格納／代入
             rs = spstmt.executeQuery();
@@ -91,7 +92,12 @@ public class Review05 {
         }
     }
 
-    /*
+    private static int keyInNum() {
+		// TODO 自動生成されたメソッド・スタブ
+		return 0;
+	}
+
+	/*
      * キーボードから入力された値をStringで返す 引数：なし 戻り値：入力された文字列
      */
     private static String keyIn() {

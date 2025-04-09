@@ -13,7 +13,6 @@ public class Review05 {
 	public static void main(String[] args) {
 		Connection con = null;
 		PreparedStatement spstmt = null;
-	    PreparedStatement ipstmt = null;
 	    ResultSet rs = null;
 
 	    try {
@@ -32,9 +31,9 @@ public class Review05 {
 
             System.out.print("検索キーワードを入力してください > ");
             String str1 = keyIn();
-            int keyword = keyInNum();
+            int keyword = Integer.parseInt(str1);
 
-			spstmt.setString(1,str1);
+            spstmt.setInt(1, keyword);
 
             // 5, 6. Select文の実行と結果を格納／代入
             rs = spstmt.executeQuery();
@@ -62,14 +61,6 @@ public class Review05 {
                     rs.close();
                 } catch (SQLException e) {
                     System.err.println("ResultSetを閉じるときにエラーが発生しました。");
-                    e.printStackTrace();
-                }
-            }
-            if (ipstmt != null) {
-                try {
-                    ipstmt.close();
-                } catch (SQLException e) {
-                    System.err.println("PreparedStatementを閉じるときにエラーが発生しました。");
                     e.printStackTrace();
                 }
             }
